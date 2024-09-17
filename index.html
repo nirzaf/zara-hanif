@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zara Hanif - Junior Accountant</title>
+    <link rel="icon" href="https://img.icons8.com/fluency/48/resume.png">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            margin-top: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Dark/Light mode styles */
+        body.light-mode {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Profile image styles */
+        .profile-image {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            h1, h2 {
+                font-size: 1.5rem;
+            }
+
+            .toggle-button {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <button class="toggle-button" onclick="toggleMode()">Switch to Dark Mode</button>
+
+    <div class="container">
+        <img src="https://i.ibb.co/9nmmcpC/Picture1.png" alt="Zara Hanif" class="profile-image">
+        <h1>Zara Hanif</h1>
+        <h2>Junior Accountant</h2>
+
+        <section>
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Location:</strong> Doha, Qatar</li>
+                <li><strong>Email:</strong> <a href="mailto:Hanifzara786@gmail.com">Hanifzara786@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+97431329864">+974-31329864</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Education</h3>
+            <ul>
+                <li><strong>Matriculation:</strong> Allama Iqbal Open University, Islamabad (Aug 2022 - July 2024)</li>
+                <li><strong>Microsoft Excel - Advanced:</strong> 6-month course, Virtual Institute, Wah Cantt</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Skills</h3>
+            <ul>
+                <li>MS Excel (Advanced proficiency)</li>
+                <li>ERP Systems</li>
+                <li>Inventory Management</li>
+                <li>Financial Analysis & Reporting</li>
+                <li>Accounting Principles & Practices</li>
+                <li>Data Analysis</li>
+                <li>Organizational Skills</li>
+                <li>Team Management & Leadership</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Work Experience</h3>
+
+            <h4>Floor Manager & Accountant | Wania's Meat, Pakistan</h4>
+            <ul>
+                <li>Maintained comprehensive financial records using ERP software and Excel.</li>
+                <li>Prepared detailed financial reports and conducted data analysis to support strategic decision-making.</li>
+                <li>Managed accounts payable/receivable, ensuring timely payments and debt collection.</li>
+                <li>Conducted internal audits to ensure compliance with regulations and tax obligations.</li>
+                <li>Supervised a team of 10 employees, focusing on safety and performance.</li>
+                <li>Coordinated interdepartmental operations to streamline workflow.</li>
+                <li>Optimized productivity through strong organizational skills.</li>
+            </ul>
+
+            <h4>Accountant | Stac Construction Company, Pakistan</h4>
+            <ul>
+                <li>Managed comprehensive accounting operations with precise financial reporting.</li>
+                <li>Collaborated with sales and marketing teams to provide insights for strategic decisions.</li>
+                <li>Implemented data validation procedures, improving accuracy and financial reporting.</li>
+                <li>Negotiated favorable supplier contracts, resulting in significant cost savings.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // Dark/Light mode toggle functionality
+        function toggleMode() {
+            var body = document.body;
+            var toggleButton = document.querySelector('.toggle-button');
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = "Switch to Light Mode";
+            } else {
+                toggleButton.textContent = "Switch to Dark Mode";
+            }
+        }
+    </script>
+</body>
+</html>
