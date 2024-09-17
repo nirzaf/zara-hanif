@@ -1,191 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Zara Hanif - Junior Accountant</title>
-    <link rel="icon" href="https://img.icons8.com/fluency/48/resume.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
-        /* Basic styles */
+        /* Basic Styling */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
-
-        h1, h2 {
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            margin-top: 2rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
+        h1, h2, h3 {
+            color: #337ab7;
+            transition: color 0.3s ease;
         }
 
         a {
-            color: inherit;
+            color: #337ab7;
             text-decoration: none;
         }
 
-        /* Dark/Light mode styles */
-        body.light-mode {
-            background-color: #f0f0f0;
-            color: #333;
+        a:hover {
+            text-decoration: underline;
         }
 
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .toggle-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        /* Container for Resume Content */
+        .resume-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
 
-        .toggle-button:hover {
-            background-color: #45a049;
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        /* Profile image styles */
-        .profile-image {
-            display: block;
-            width: 200px;
-            height: 200px;
+        .header img {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            margin: 0 auto 1rem;
             object-fit: cover;
+            margin-bottom: 10px;
         }
 
-        /* Responsiveness */
+        .header h1 {
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        .section-title:hover {
+            border-bottom-color: #337ab7;
+        }
+
+        /* Experience & Education Entries */
+        .experience .entry,
+        .education .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry .title {
+            font-weight: bold;
+        }
+
+        .entry .date {
+            font-style: italic;
+            color: #777;
+        }
+
+        .entry-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, transparent, currentColor, transparent);
+            opacity: 0.3;
+            margin: 20px 0;
+        }
+
+        /* Skills Section */
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -5px;
+        }
+
+        .skills li {
+            padding: 5px;
+            margin: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Contact Icons */
+        .contact-icons li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .contact-icons i {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #181818;
+            color: #eee;
+        }
+
+        .dark-mode .resume-container {
+            background: #252525;
+        }
+
+        .dark-mode .section-title {
+            border-bottom-color: #555;
+        }
+
+        .dark-mode .skills li {
+            background-color: #333;
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #555;
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 600px) {
-            .container {
-                padding: 0.5rem;
+            .resume-container {
+                padding: 20px;
             }
 
-            h1, h2 {
-                font-size: 1.5rem;
+            .skills ul {
+                flex-direction: column;
             }
 
-            .toggle-button {
-                font-size: 0.8rem;
-                padding: 8px;
+            .skills li {
+                margin: 5px 0;
             }
+        }
 
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
+        /* Animation for Expanding/Collapsing Content */
+        .collapsible-content {
+            overflow: hidden;
+        }
+
+        .section-title[aria-expanded="false"]::after {
+            content: " +";
+            float: right;
+        }
+
+        .section-title[aria-expanded="true"]::after {
+            content: " -";
+            float: right;
         }
     </style>
 </head>
-<body class="light-mode">
-    <button class="toggle-button" onclick="toggleMode()"><i class="fas fa-moon"></i></button>
 
-    <div class="container">
-        <img src="https://raw.githubusercontent.com/nirzaf/zara-hanif/0a7d7c2573b1eacc8c35813e2130c9543afbbe9a/Picture1.png" alt="Zara Hanif" class="profile-image">
-        <h1>Zara Hanif</h1>
-        <h2>Junior Accountant</h2>
+<body>
+    <button class="dark-mode-toggle">Toggle Dark Mode</button>
 
-        <section>
-            <h3>Contact Information</h3>
-            <ul>
-                <li><strong>Location:</strong> Doha, Qatar</li>
-                <li><strong>Email:</strong> <a href="mailto:Hanifzara786@gmail.com">Hanifzara786@gmail.com</a></li>
-                <li><strong>Phone:</strong> <a href="tel:+97431329864">+974-31329864</a></li>
+    <div class="resume-container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/nirzaf/zara-hanif/0a7d7c2573b1eacc8c35813e2130c9543afbbe9a/Picture1.png" alt="Zara Hanif" class="profile-image">
+            <h1>Zara Hanif</h1>
+            <h3>Junior Accountant</h3>
+            <ul class="contact-icons">
+                <li><i class="fas fa-map-marker-alt"></i> Doha, Qatar</li>
+                <li><i class="fas fa-phone"></i> <a href="tel:+97431329864">+974-31329864</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:Hanifzara786@gmail.com">Hanifzara786@gmail.com</a></li>
             </ul>
-        </section>
+        </div>
 
-        <section>
-            <h3>Education</h3>
-            <ul>
-                <li><strong>Matriculation:</strong> Allama Iqbal Open University, Islamabad (Aug 2022 - July 2024)</li>
-                <li><strong>Microsoft Excel - Advanced:</strong> 6-month course, Virtual Institute, Wah Cantt</li>
-            </ul>
-        </section>
+        <div class="section">
+            <h2 class="section-title" aria-expanded="false">Contact Information</h2>
+            <div class="collapsible-content">
+                <ul>
+                    <li><strong>Location:</strong> Doha, Qatar</li>
+                    <li><strong>Email:</strong> <a href="mailto:Hanifzara786@gmail.com">Hanifzara786@gmail.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+97431329864">+974-31329864</a></li>
+                    <li><strong>Date of Birth:</strong> 10/12/1996</li>
+                </ul>
+            </div>
+        </div>
 
-        <section>
-            <h3>Skills</h3>
-            <ul>
-                <li>MS Excel (Advanced proficiency)</li>
-                <li>ERP Systems</li>
-                <li>Inventory Management</li>
-                <li>Financial Analysis & Reporting</li>
-                <li>Accounting Principles & Practices</li>
-                <li>Data Analysis</li>
-                <li>Organizational Skills</li>
-                <li>Team Management & Leadership</li>
-            </ul>
-        </section>
+        <div class="section education">
+            <h2 class="section-title" aria-expanded="false">Education</h2>
+            <div class="collapsible-content">
+                <div class="entry">
+                    <div class="title">Matriculation</div>
+                    <div class="info">
+                        <span class="company">Allama Iqbal Open University, Islamabad</span> |
+                        <span class="date">Aug 2022 - July 2024</span>
+                    </div>
+                </div>
+                <div class="entry">
+                    <div class="title">Microsoft Excel - Advanced</div>
+                    <div class="info">
+                        <span class="company">Virtual Institute, Wah Cantt</span> |
+                        <span class="date">6-month course</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <section>
-            <h3>Work Experience</h3>
+        <div class="section skills">
+            <h2 class="section-title" aria-expanded="false">Skills</h2>
+            <div class="collapsible-content">
+                <ul>
+                    <li>MS Excel (Advanced proficiency)</li>
+                    <li>ERP Systems</li>
+                    <li>Inventory Management</li>
+                    <li>Financial Analysis & Reporting</li>
+                    <li>Accounting Principles & Practices</li>
+                    <li>Data Analysis</li>
+                    <li>Organizational Skills</li>
+                    <li>Team Management & Leadership</li>
+                    <li>QuickBooks</li>
+                </ul>
+            </div>
+        </div>
 
-            <h4>Floor Manager & Accountant | Wania's Meat, Pakistan</h4>
-            <ul>
-                <li>Maintained comprehensive financial records using ERP software and Excel.</li>
-                <li>Prepared detailed financial reports and conducted data analysis to support strategic decision-making.</li>
-                <li>Managed accounts payable/receivable, ensuring timely payments and debt collection.</li>
-                <li>Conducted internal audits to ensure compliance with regulations and tax obligations.</li>
-                <li>Supervised a team of 10 employees, focusing on safety and performance.</li>
-                <li>Coordinated interdepartmental operations to streamline workflow.</li>
-                <li>Optimized productivity through strong organizational skills.</li>
-            </ul>
+        <div class="section experience">
+            <h2 class="section-title" aria-expanded="false">Work Experience</h2>
+            <div class="collapsible-content">
+                <div class="entry">
+                    <div class="title">Floor Manager & Accountant</div>
+                    <div class="info">
+                        <span class="company">Wania's Meat, Pakistan</span>
+                    </div>
+                    <ul>
+                        <li>Maintained comprehensive financial records using ERP software and Excel.</li>
+                        <li>Prepared detailed financial reports and conducted data analysis to support strategic decision-making.</li>
+                        <li>Managed accounts payable/receivable, ensuring timely payments and debt collection.</li>
+                        <li>Conducted internal audits to ensure compliance with regulations and tax obligations.</li>
+                        <li>Supervised a team of 10 employees, focusing on safety and performance.</li>
+                        <li>Coordinated interdepartmental operations to streamline workflow.</li>
+                        <li>Optimized productivity through strong organizational skills.</li>
+                    </ul>
+                </div>
 
-            <h4>Accountant | Stac Construction Company, Pakistan</h4>
-            <ul>
-                <li>Managed comprehensive accounting operations with precise financial reporting.</li>
-                <li>Collaborated with sales and marketing teams to provide insights for strategic decisions.</li>
-                <li>Implemented data validation procedures, improving accuracy and financial reporting.</li>
-                <li>Negotiated favorable supplier contracts, resulting in significant cost savings.</li>
-            </ul>
-        </section>
+                <hr class="entry-divider">
+
+                <div class="entry">
+                    <div class="title">Accountant</div>
+                    <div class="info">
+                        <span class="company">Stac Construction Company, Pakistan</span>
+                    </div>
+                    <ul>
+                        <li>Managed comprehensive accounting operations with precise financial reporting.</li>
+                        <li>Collaborated with sales and marketing teams to provide insights for strategic decisions.</li>
+                        <li>Implemented data validation procedures, improving accuracy and financial reporting.</li>
+                        <li>Negotiated favorable supplier contracts, resulting in significant cost savings.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title" aria-expanded="false">Additional Information</h2>
+            <div class="collapsible-content">
+                <ul>
+                    <li><strong>Visa Status:</strong> Valid Transferrable QID</li>
+                    <li><strong>Languages:</strong> English, Urdu (native)</li>
+                    <li><strong>Willingness to Learn:</strong> Yes, willing to learn new software solutions if required</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Dark/Light mode toggle functionality
-        function toggleMode() {
-            var body = document.body;
-            var toggleButton = document.querySelector('.toggle-button');
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
+        $(document).ready(function () {
+            // Dark Mode Toggle
+            const toggleButton = document.querySelector('.dark-mode-toggle');
+            const body = document.body;
 
-            if (body.classList.contains('dark-mode')) {
-                toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+            function detectSystemTheme() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'false');
+                }
             }
-        }
+
+            detectSystemTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectSystemTheme);
+
+            toggleButton.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+            });
+
+            // Collapsible Sections
+            $(".section-title").click(function () {
+                const $content = $(this).next(".collapsible-content");
+                const isExpanded = $(this).attr('aria-expanded') === 'true';
+
+                if (isExpanded) {
+                    $content.slideUp(300);
+                } else {
+                    $content.slideDown(300);
+                }
+
+                $(this).attr('aria-expanded', !isExpanded);
+            });
+
+            $(".collapsible-content").hide(); // Initially hide all collapsible content
+            $(".section-title").attr('aria-expanded', 'false'); // Set aria-expanded to false
+        });
     </script>
 </body>
+
 </html>
