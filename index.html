@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Zara Hanif - Junior Accountant</title>
     <link rel="icon" href="https://img.icons8.com/fluency/48/resume.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Basic styles */
         body {
@@ -109,10 +110,10 @@
     </style>
 </head>
 <body class="light-mode">
-    <button class="toggle-button" onclick="toggleMode()">Switch to Dark Mode</button>
+    <button class="toggle-button" onclick="toggleMode()"><i class="fas fa-moon"></i></button>
 
     <div class="container">
-        <img src="https://i.ibb.co/9nmmcpC/Picture1.png" alt="Zara Hanif" class="profile-image">
+        <img src="https://raw.githubusercontent.com/nirzaf/zara-hanif/0a7d7c2573b1eacc8c35813e2130c9543afbbe9a/Picture1.png" alt="Zara Hanif" class="profile-image">
         <h1>Zara Hanif</h1>
         <h2>Junior Accountant</h2>
 
@@ -180,9 +181,9 @@
             body.classList.toggle('light-mode');
 
             if (body.classList.contains('dark-mode')) {
-                toggleButton.textContent = "Switch to Light Mode";
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
             } else {
-                toggleButton.textContent = "Switch to Dark Mode";
+                toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
             }
         }
     </script>
